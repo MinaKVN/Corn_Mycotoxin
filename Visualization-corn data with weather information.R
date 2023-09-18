@@ -11,7 +11,7 @@ library(tinytex)
 
 
 ### Reading data and removing NA's 
-#note: corn_R.csv is the data with weather infornmation
+#note: corn_R.csv is the data with weather information
 #reading data and see the summary of data before change
 corn <- read.csv("corn_R.csv")
 summary(corn)
