@@ -40,12 +40,12 @@ vom <-
 vom
 
 ### Plotting temp periods /years 
-# plots: years by percip for the chosen periods 
+# plots: years by precipitation for the chosen periods 
 p1 <-
   ggplot(cornc,
          aes(x = year, y = total_precip_July_3)) +
   geom_boxplot(fill="plum")+ 
-  labs(title="July week 3 percipitation", 
+  labs(title="July week 3 precipitation", 
        subtitle="years (2011-2022)",
        x="Year",
        y="Total Percipitaion (mm)")
@@ -55,7 +55,7 @@ p2 <-
   ggplot(cornc,
          aes(x = year, y = total_precip_July_4)) +
   geom_boxplot(fill="lightblue")+ 
-  labs(title="July week 4 percipitation", 
+  labs(title="July week 4 precipitation", 
        subtitle="years (2011-2022)",
        x="Year",
        y="Total Percipitaion (mm)")
@@ -75,13 +75,13 @@ p4 <-
   ggplot(cornc,
          aes(x = year, y = total_precip_Aug_2)) +
   geom_boxplot(fill="lightgreen")+ 
-  labs(title="Aug week 2 percipitation", 
+  labs(title="Aug week 2 precipitation", 
        subtitle="years (2011-2022)",
        x="Year",
        y="Total Percipitaion (mm)")
 p4 +scale_y_continuous(limits = c(0, 20))
 
-### Plotting percip periods /years 
+### Plotting temperature periods /years 
 # plots: years by temp for the chosen periods
 p5 <-
   ggplot(cornc,
@@ -141,13 +141,13 @@ library(rasterVis)
 library(lattice)
 
 
-#### Subset a year for percip (change layer name for desired year or period) & you can use the breaks for the desired ranges
+#### Subset a year for precipitation (change layer name for desired year or period) & you can use the breaks for the desired ranges
 #### Example: 2018
 #there will be warnings regarding the color spectrum which are OK :)
 #year 2018
 yr <- subset(cornc, year == "2018")
 #breaks <- c(0, 5, 10, 15, 20) # manual breaks
-Percip <- mapview(
+Precip <- mapview(
   yr,
   xcol = "longitude",
   ycol = "latitude",
@@ -155,7 +155,7 @@ Percip <- mapview(
   grid = FALSE,
   zcol = "total_precip_Aug_1",#at=breaks,
   col.regions = brewer.pal(9, "Greens"),
-  layer.name = "Total Percipitation(mm)-Aug 1_2018")
+  layer.name = "Total precipitation (mm)-Aug 1_2018")
 
 
 yr <- subset(cornc, year == "2018")
@@ -181,16 +181,16 @@ Vom <- mapview(
   layer.name = "Mycotoxin 2018",
   at=breaks
 )
-Percip|Vom
+Precip|Vom
 Temp|Vom
 
 #### Example: 2022
-#subset a year for percip (change layer name for desired year or period) & you can use the breaks for the desired range
+#subset a year for precipitation (change layer name for desired year or period) & you can use the breaks for the desired range
 #there will be warnings regarding the color spectrum which are OK :)
 # year 2022
 yr <- subset(cornc, year == "2022")
 #breaks <- c(0, 5, 10, 15, 20) # manual breaks
-Percip <- mapview(
+Precip <- mapview(
   yr,
   xcol = "longitude",
   ycol = "latitude",
@@ -198,7 +198,7 @@ Percip <- mapview(
   grid = TRUE,
   zcol = "total_precip_July_3",#at=breaks,
   col.regions = brewer.pal(9, "Greens"),
-  layer.name = "Total Percipitation(mm)-July 3_2022")
+  layer.name = "Total precipitation (mm)-July 3_2022")
 
 #breaks <- c(15, 17, 20, 23, 25, 27, 30) # manual breaks
 Temp <- mapview(
@@ -222,5 +222,5 @@ Vom <- mapview(
   layer.name = "Mycotoxin 2022",
   at=breaks
 )
-Percip|Vom
+Precip|Vom
 Temp|Vom
